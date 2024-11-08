@@ -7,5 +7,5 @@ public interface UserService {
 
     public UserEntity save (UserEntity newUser);
 
-    public UserDetailsService userDetailsService();
+
 }
