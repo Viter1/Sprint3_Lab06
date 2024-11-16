@@ -26,4 +26,11 @@ public class TestController {
         return "Only Admin can see this";
     }
 
+    @GetMapping("/roles")
+    public String roles() {
+        return "Users and admins can see this";
+    }
+
+
+
 }

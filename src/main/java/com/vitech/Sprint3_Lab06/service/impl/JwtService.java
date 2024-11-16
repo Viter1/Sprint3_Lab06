@@ -22,7 +22,7 @@ public class JwtService {
     @Value("${token.secret.key}")
     String jwtSecretKey;
 
-    @Value("${token.jwtExpirationms}")
+    @Value("${token.expirationms}")
     Long jwtExpirationMs;
 
     public String extractUserName(String token ){
@@ -44,7 +44,12 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token).getBody();
+        return Jwts
+                .parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
 
     }
 

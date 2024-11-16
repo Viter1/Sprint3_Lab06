@@ -26,13 +26,16 @@ public class UserController {
         catch (Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-
-
-
+        
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request){
+        try{
             return ResponseEntity.ok(authenticacionService.logIn(request));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
     }
 }
